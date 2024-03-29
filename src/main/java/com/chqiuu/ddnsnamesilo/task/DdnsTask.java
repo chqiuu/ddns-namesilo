@@ -96,8 +96,9 @@ public class DdnsTask {
             log.info("IP不一致，需要更新映射IP localIp:{},domainIP:{}", localIp, Constant.Public.DOMAIN_IP_ADDRESS);
             // 修改域名映射IP
             try {
+                String finalLocalIp = localIp;
                 Constant.Public.DOMAIN_MAP.forEach((recordId, domain) -> {
-                    String url = String.format("https://www.namesilo.com/api/dnsUpdateRecord?version=1&type=xml&key=%s&domain=%s&rrid=%s&rrhost=%s&rrvalue=%s&rrttl=7207", properties.getNamesiloApiKey(), mainDomain, recordId, domain, Constant.Public.DOMAIN_IP_ADDRESS);
+                    String url = String.format("https://www.namesilo.com/api/dnsUpdateRecord?version=1&type=xml&key=%s&domain=%s&rrid=%s&rrhost=%s&rrvalue=%s&rrttl=7207", properties.getNamesiloApiKey(), mainDomain, recordId, domain, finalLocalIp);
                     log.info("设置url {}", url);
                     String res = restTemplate.getForObject(url, String.class);
                     if (res != null) {
