@@ -28,9 +28,9 @@ public class DdnsTask {
      * <p>
      * https://www.namesilo.com/account/api-manager
      * <p>
-     * 执行频率，每次启动项目后固定频率执行 5分钟
+     * 执行频率，每次启动项目后固定频率执行 30分钟
      */
-    @Scheduled(initialDelay = 5000, fixedDelay = 300 * 1000)
+    @Scheduled(initialDelay = 5000, fixedDelay = 30 * 60 * 1000)
     public void ddnsTask() {
         if (properties.getDomains() == null || properties.getDomains().length == 0) {
             log.error("请配置您的域名");

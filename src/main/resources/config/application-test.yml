@@ -71,5 +71,5 @@ chqiuu:
     local-resource-path:
     swagger-enable: true
     domains:
-      - b.chqiuu.com
-    namesilo-api-key: c020***e91
+      - blog.chqiuu.com
+    namesilo-api-key: c020541d48e2bec9c6de91
