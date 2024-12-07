@@ -44,7 +44,7 @@ public class DdnsTask {
         if (StrUtil.isBlank(Constant.Public.DOMAIN_IP_ADDRESS)) {
             getListRecords();
         }
-        log.info("当前域名映射IP：{}", Constant.Public.DOMAIN_IP_ADDRESS);
+        log.debug("当前域名映射IP：{}", Constant.Public.DOMAIN_IP_ADDRESS);
         if (Constant.Public.DOMAIN_IP_ADDRESS == null) {
             log.error("当前域名映射IP为空，请检查namesilo是否配置正确！");
             return;
@@ -80,11 +80,11 @@ public class DdnsTask {
         Constant.Public.DOMAIN_MAP = new HashMap<>();
         try {
             String url = String.format("https://www.namesilo.com/api/dnsListRecords?version=1&type=xml&key=%s&domain=%s", properties.getNamesiloApiKey(), mainDomain);
-            log.info("列表 url {}", url);
+            log.debug("列表 url {}", url);
             // 获取当前域名映射IP
             String res = restTemplate.getForObject(url, String.class);
             if (res != null) {
-                log.info("列表： {}", res);
+                log.debug("列表： {}", res);
                 org.dom4j.Document document = DocumentHelper.parseText(res);
                 List<Node> nodeList = document.selectNodes("//reply/resource_record");
                 for (Node node : nodeList) {
@@ -119,7 +119,7 @@ public class DdnsTask {
                     } else {
                         localIp = res.trim();
                     }
-                    log.info("{} localIp [{}] {}", url, localIp, Ipv4Util.ipv4ToLong(localIp));
+                    log.debug("getLocalIp {} [{}] {}", url, localIp, Ipv4Util.ipv4ToLong(localIp));
                 }
             } catch (Exception e) {
                 log.error("{} 获取IP失败！", url);
