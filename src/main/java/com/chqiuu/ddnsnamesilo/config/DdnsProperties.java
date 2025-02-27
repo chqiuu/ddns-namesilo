@@ -28,4 +28,8 @@ public class DdnsProperties {
      * 域名列表
      */
     private String[] domains;
+    /**
+     * 域名列表
+     */
+    private String[] excludeLocalIps;
 }

@@ -13,6 +13,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -37,7 +38,7 @@ public class DdnsTask {
             return;
         }
         String localIp = getLocalIp();
-        if (StrUtil.isBlank(localIp)) {
+        if (StrUtil.isBlank(localIp) || Arrays.asList(properties.getExcludeLocalIps()).contains(localIp)) {
             log.error("获取本机IP失败");
             return;
         }

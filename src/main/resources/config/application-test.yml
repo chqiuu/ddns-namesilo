@@ -70,6 +70,10 @@ chqiuu:
   ddns:
     local-resource-path:
     swagger-enable: true
+    exclude-local-ips:
+      - 127.0.0.1
+      - localhost
+      - 118.112.188.82
     domains:
-      - blog.chqiuu.com
-    namesilo-api-key: c020541d48e2bec9c6de91
+      - www.chqiuu.com
+    namesilo-api-key: c023205441d48e2222bec9c6de912222
