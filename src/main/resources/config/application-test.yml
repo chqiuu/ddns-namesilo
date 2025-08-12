@@ -75,5 +75,8 @@ chqiuu:
       - localhost
       - 118.112.188.82
     domains:
-      - www.chqiuu.com
-    namesilo-api-key: c023205441d48e2222bec9c6de912222
+      - type: A
+        domain: 222.chqiuu.com
+      - type: AAAA
+        domain: 111.chqiuu.com
+    namesilo-api-key: 222

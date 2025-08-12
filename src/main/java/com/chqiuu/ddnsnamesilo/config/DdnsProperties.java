@@ -5,6 +5,9 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+import java.util.Map;
+
 @Data
 @Order(-1)
 @Component
@@ -27,7 +30,7 @@ public class DdnsProperties {
     /**
      * 域名列表
      */
-    private String[] domains;
+    private List<Map<String, String>> domains;
     /**
      * 域名列表
      */

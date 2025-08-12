@@ -2,6 +2,7 @@ package com.chqiuu.ddnsnamesilo.common.constant;
 
 import cn.hutool.core.lang.Snowflake;
 import cn.hutool.core.util.IdUtil;
+import com.chqiuu.ddnsnamesilo.dto.ResourceRecordDTO;
 
 import java.util.Map;
 
@@ -25,7 +26,7 @@ public class Constant {
         /**
          * record_id map
          */
-        public static Map<String, String> DOMAIN_MAP;
+        public static Map<String, ResourceRecordDTO> DOMAIN_MAP;
         /**
          * Domain mapping IP
          */
